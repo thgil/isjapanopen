@@ -111,6 +111,8 @@ export default function Home() {
         <meta name="twitter:image" content="https://www.canigotojapan.com/og-canigotojapan.png" />
 
         <meta name="viewport" content="width=device-width,initial-scale=1.0"></meta>
+
+        <script defer data-domain="canigotojapan.com" src="https://plausible.io/js/plausible.js"></script>
       </Head>
       <main>
         <Hero></Hero>
