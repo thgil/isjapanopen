@@ -6,25 +6,25 @@ const faqs = [
     id: 1,
     question: "When will Japan lift its travel ban and reopen for tourists?",
     answer:
-      "No one knows yet.",
+      "No one knows yet. But it will be at least a couple of months.",
   },
   {
     id: 2,
-    question: "What's the best thing about Switzerland?",
+    question: "Can I go to Japan?",
     answer:
-      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+      "You cannot visit Japan unless you are a Japanese citizen.",
   },
   {
     id: 3,
-    question: "What's the best thing about Switzerland?",
+    question: "I thought Japan eased restrictions?",
     answer:
-      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+      "That lasted for only a few weeks, and Japan never actaully reopened for tourists.",
   },
   {
     id: 4,
-    question: "What's the best thing about Switzerland?",
+    question: "When is the next update from the Japanese government?",
     answer:
-      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+      "A decision on whether to maintain the closure is expected sometime within the next week, in mid-January 2022.",
   },
   // More questions...
 ]
@@ -51,6 +51,32 @@ const articles = [
     description: "TOKYO -- Amid severe restrictions on new entries by foreign nationals to Japan introduced in November 2021 following confirmation of the coronavirus's",
     image: {
       url: "https://cdn.mainichi.jp/vol1/2022/01/10/20220110p2a00m0na011000p/0c10.jpg?1",
+      width: "",
+      height: "",
+      type: ""
+    }
+  },
+  {
+    id: 2,
+    url: "https://www.japantimes.co.jp/news/2022/01/08/national/politics-diplomacy/omicron-fumio-kishida-covid-policy/",
+    site_name: "The Mainichi",
+    title: "Omicron spread puts Kishida's COVID policy to the test",
+    description: "Kishida put three prefectures — Okinawa, Hiroshima and Yamaguchi — under quasi-emergency measures, but not all in his administration were on board with the decision.",
+    image: {
+      url: "https://cdn-japantimes.com/wp-content/uploads/2022/01/np_file_134143-870x489.jpeg",
+      width: "",
+      height: "",
+      type: ""
+    }
+  },
+  {
+    id: 3,
+    url: "https://english.kyodonews.net/news/2022/01/19d6f4cd1c20-covid-border-steps-force-300-foreigners-to-decline-japan-teacher-jobs.html",
+    site_name: "The Mainichi",
+    title: "COVID border steps force 300 foreigners to decline Japan teacher jobs",
+    description: "Japan's COVID-19 border restrictions appear to have prompted more than 300 people to decline offers for foreign language teacher and assistant positions in Japan, leading to a fall in the number of such instructors in the country, according to a Kyodo News survey.",
+    image: {
+      url: "https://img.kyodonews.net/english/public/images/posts/a1576910b54f79779619a1e609c8f047/cropped_image_l.jpg",
       width: "",
       height: "",
       type: ""
@@ -108,7 +134,7 @@ const Hero = () => {
             Is Japan open yet?
           </h1>
           <h2 className="max-w-xl mt-5 mx-auto text-3xl text-gray-700">
-            No. Japan borders are still closed for us :(
+            No. Japan borders are still closed :(
           </h2>
         </div>
       </div>
@@ -121,7 +147,7 @@ const Cases = () => {
     <div>
       <div className="max-w-7xl mx-auto py-8 px-4 sm:py-12 sm:px-6 lg:px-8">
         <div className="text-center text-gray-500">
-          <b>6 438</b> new cases in Japan today.
+          <b>6 378</b> new cases in Japan today.
         </div>
       </div>
     </div>
@@ -159,10 +185,6 @@ const FAQ = () => {
       <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
         <div className="lg:max-w-2xl lg:mx-auto lg:text-center">
           <h3 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Frequently asked questions</h3>
-          <p className="mt-4 text-stone-50">
-            Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada adipiscing sagittis vel nulla nec.
-            Urna, sed a lectus elementum blandit et.
-          </p>
         </div>
         <div className="mt-20">
           <dl className="space-y-10 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-10">
