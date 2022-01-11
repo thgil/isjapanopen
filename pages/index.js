@@ -98,18 +98,18 @@ export default function Home() {
         <meta name="keywords" content="Japan, Open, Border, Visa, Tokyo, Osaka"></meta>
         <meta name="robots" content="index, follow" />
 
-        <meta property="og:url" content="https://www.byeindonesia.com/" />
+        <meta property="og:url" content="https://www.canigotojapan.com/" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Bye Indonesia - Renunciation of Indonesian Citizenship Guide 2021" />
-        <meta property="og:description" content="Renunciation of Indonesian citizenship process changed in 2020. This site aims to answer all your questions on the new process." />
-        <meta property="og:image" content="https://www.byeindonesia.com/og-bye-indonesia.png" />
+        <meta property="og:title" content="Can I go to Japan? - Probably not yet but.." />
+        <meta property="og:description" content="Want to find out about the Coronavirus situation in Japan? We have all the info about when you can go!" />
+        <meta property="og:image" content="https://www.canigotojapan.com/og-canigotojapan.png" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta property="twitter:domain" content="byeindonesia.com" />
-        <meta property="twitter:url" content="https://www.byeindonesia.com/" />
-        <meta name="twitter:title" content="Bye Indonesia - Renunciation of Indonesian Citizenship Guide 2021" />
-        <meta name="twitter:description" content="Renunciation of Indonesian citizenship process changed in 2020. This site aims to answer all your questions on the new process." />
-        <meta name="twitter:image" content="https://www.byeindonesia.com/og-bye-indonesia.png" />
+        <meta property="twitter:domain" content="canigotojapan.com" />
+        <meta property="twitter:url" content="https://www.canigotojapan.com/" />
+        <meta name="twitter:title" content="Can I go to Japan? - Probably not yet but.." />
+        <meta name="twitter:description" content="Want to find out about the Coronavirus situation in Japan? We have all the info about when you can go!" />
+        <meta name="twitter:image" content="https://www.canigotojapan.com/og-canigotojapan.png" />
 
         <meta name="viewport" content="width=device-width,initial-scale=1.0"></meta>
       </Head>
