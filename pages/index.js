@@ -249,7 +249,7 @@ export default function Home() {
         {map && <Map data={map} width={width}></Map>}
       </main> 
       <footer>
-        <div className="text-center text-red-300 bg-red-600 p-12"><h5>Made by</h5> <a className="text-red-100 hover:text-white" href="https://www.twitter.com/fergusleen">@fergusleen</a></div>
+        <div className="text-center text-red-300 text-sm bg-red-600 p-12"><h5>Made by</h5> <a className="text-red-100 hover:text-white" href="https://www.twitter.com/fergusleen">@fergusleen</a></div>
       </footer>
     </div>
   )
@@ -277,7 +277,7 @@ const Cases = ({ total }) => {
       <div className="max-w-7xl mx-auto py-8 px-4 sm:py-12 sm:px-6 lg:px-8">
         { total && 
         <div className="text-center text-gray-500">
-           <b>{total.today_cases}</b> new cases in Japan today.
+           <b>{numberWithSpaces(total.today_cases)}</b> new cases in Japan today.
         </div> 
         }
       </div>
@@ -334,4 +334,8 @@ const FAQ = () => {
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
+}
+
+function numberWithSpaces(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
