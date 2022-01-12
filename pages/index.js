@@ -1,4 +1,8 @@
 import Head from 'next/head'
+import Script from 'next/script'
+import Papa from 'papaparse'
+import Map from '../components/map'
+import { useState, useEffect } from 'react'
 
 const faqs = [
   {
@@ -84,6 +88,39 @@ const articles = [
 ]
 
 export default function Home() {
+  const [map, setMap] = useState();
+
+  useEffect(() => {
+    async function getMapData() {
+      const raw_map = await fetch('/japan.json');
+      const nodata_map = await raw_map.json();
+      Papa.parse('./japan_data.csv', {
+        download: true,
+        complete: (corona) => {
+          // TODO: this could be done cleaner
+          // combine the map data with the corona data for each region
+          let data_features = nodata_map.features.map((feature) => {
+            for(const region of corona.data) {
+              if(feature.properties.name === region[2]) {
+                feature.properties.confirmed = region[7];
+                feature.properties.deaths = region[8]
+                feature.properties.recovered = region[9]
+                feature.properties.active = region[10]
+                feature.properties.incident_rate = region[12]
+                feature.properties.case_fatality_ratio = region[13]
+              }
+            }
+            return feature;
+          })
+          nodata_map.features = data_features;
+
+          setMap(nodata_map);
+        }
+      })
+    }
+    getMapData();
+  }, []);
+
   return (
     <div className="">
       <Head>
@@ -119,6 +156,7 @@ export default function Home() {
         <Cases></Cases>
         <News></News>
         <FAQ></FAQ>
+        {map && <Map data={map}></Map>}
       </main> 
       <footer>
         <div className="text-center text-red-300 bg-red-600 p-12"><h5>Made by</h5> <a className="text-red-100 hover:text-white" href="https://www.twitter.com/fergusleen">@fergusleen</a></div>
