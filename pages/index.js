@@ -74,39 +74,142 @@ const articles = [
   }
 ]
 
+const pref_code= [
+  { name: "Hokkaido", code: 1 },
+  { name: "Aomori", code: 2 },
+  { name: "Iwate", code: 3 },
+  { name: "Miyagi", code: 4 },
+  { name: "Akita", code: 5 },
+  { name: "Yamagata", code: 6 },
+  { name: "Fukushima", code: 7 },
+  { name: "Ibaraki", code: 8 },
+  { name: "Tochigi", code: 9 },
+  { name: "Gunma", code: 10 },
+  { name: "Saitama", code: 11 },
+  { name: "Chiba", code: 12 },
+  { name: "Tokyo", code: 13 },
+  { name: "Kanagawa", code: 14 },
+  { name: "Niigata", code: 15 },
+  { name: "Toyama", code: 16 },
+  { name: "Ishikawa", code: 17 },
+  { name: "Fukui", code: 18 },
+  { name: "Yamanashi", code: 19 },
+  { name: "Nagano", code: 20 },
+  { name: "Gifu", code: 21 },
+  { name: "Shizuoka", code: 22 },
+  { name: "Aichi", code: 23 },
+  { name: "Mie", code: 24 },
+  { name: "Shiga", code: 25 },
+  { name: "Kyoto", code: 26 },
+  { name: "Osaka", code: 27 },
+  { name: "Hyogo", code: 28 },
+  { name: "Nara", code: 29 },
+  { name: "Wakayama", code: 30 },
+  { name: "Tottori", code: 31 },
+  { name: "Shimane", code: 32 },
+  { name: "Okayama", code: 33 },
+  { name: "Hiroshima", code: 34 },
+  { name: "Yamaguchi", code: 35 },
+  { name: "Tokushima", code: 36 },
+  { name: "Kagawa", code: 37 },
+  { name: "Ehime", code: 38 },
+  { name: "Kochi", code: 39 },
+  { name: "Fukuoka", code: 40 },
+  { name: "Saga", code: 41 },
+  { name: "Nagasaki", code: 42 },
+  { name: "Kumamoto", code: 43 },
+  { name: "Oita", code: 44 },
+  { name: "Miyazaki", code: 45 },
+  { name: "Kagoshima", code: 46 },
+  { name: "Okinawa", code: 47 }
+]
+
 export default function Home() {
-  const [map, setMap] = useState();
+  const [ map, setMap ] = useState();
+  const [ coronaData, setCoronaData ] = useState();
+  const [ total, setTotal ] = useState()
 
   useEffect(() => {
+    if(map || coronaData) return;
+    
     async function getMapData() {
       const raw_map = await fetch('/japan.json');
-      const nodata_map = await raw_map.json();
-      Papa.parse('./japan_data.csv', {
+      const geomap = await raw_map.json();
+      
+      // This is a large data set 1.4MB
+      Papa.parse('https://www3.nhk.or.jp/n-data/opendata/coronavirus/nhk_news_covid19_prefectures_daily_data.csv', {
         download: true,
         complete: (corona) => {
-          // TODO: this could be done cleaner
-          // combine the map data with the corona data for each region
-          let data_features = nodata_map.features.map((feature) => {
-            for(const region of corona.data) {
-              if(feature.properties.name === region[2]) {
-                feature.properties.confirmed = region[7];
-                feature.properties.deaths = region[8]
-                feature.properties.recovered = region[9]
-                feature.properties.active = region[10]
-                feature.properties.incident_rate = region[12]
-                feature.properties.case_fatality_ratio = region[13]
-              }
-            }
-            return feature;
-          })
-          nodata_map.features = data_features;
 
-          setMap(nodata_map);
+          // Get today's date and convert it to yyyy/mm/dd with no leading 0's
+          const today = new Date().toISOString().split('T')[0].replace(/-0+/g, '/').replaceAll('-','/')
+
+          // Filter data for just today's date
+          const today_data = corona.data.filter((row) => row[0] === today )
+
+          geomap.date = today;
+
+          // Combine are data
+          updateFeatures(geomap, today_data)
+
+          setMap(geomap);
+          setCoronaData(corona)
+      
+          const temp = {
+            today_cases: 0,
+            cases: 0,
+            today_deaths: 0,
+            deaths: 0
+          }
+
+          geomap.features.map((feature) => {
+            temp.today_cases += Number(feature.properties.today_cases);
+            temp.cases += Number(feature.properties.temp_cases);
+            temp.today_deaths +=  Number(feature.properties.today_deaths);
+            temp.deaths +=  Number(feature.properties.total_deaths);
+          })
+      
+          setTotal(temp)
         }
       })
     }
     getMapData();
   }, []);
+  
+  const updateFeatures = (map, data, date) => {
+    data.map((region) => {
+      // get prefecture code
+      const code = region[1];
+      
+      // convert it to our map prefecture name
+      const pref = pref_code.find((p) => p.code == code ).name;            
+      const feature = map.features.find((f) => f.properties.name == pref )
+
+      feature.properties.total_cases = region[4];
+      feature.properties.today_deaths = region[5]
+      feature.properties.total_deaths = region[6]
+      // feature.properties.recovered = region[5]
+      feature.properties.today_cases = region[3]
+      feature.properties.incident_rate = region[7]
+      // feature.properties.case_fatality_ratio = region[13]
+    
+    }) 
+  }
+
+  const [width, setWidth] = useState(650);
+
+  function handleWindowSizeChange() {
+    if(window.innerWidth > 650) setWidth(650);
+    else setWidth(window.innerWidth - 30);
+  }
+
+  useEffect(() => {
+    handleWindowSizeChange();
+    window.addEventListener('resize', handleWindowSizeChange);
+    return () => {
+      window.removeEventListener('resize', handleWindowSizeChange);
+    }
+  })
 
   return (
     <div className="">
@@ -140,10 +243,10 @@ export default function Home() {
       </Head>
       <main>
         <Hero></Hero>
-        <Cases></Cases>
+        <Cases total={total}></Cases>
         <News></News>
         <FAQ></FAQ>
-        {map && <Map data={map}></Map>}
+        {map && <Map data={map} width={width}></Map>}
       </main> 
       <footer>
         <div className="text-center text-red-300 bg-red-600 p-12"><h5>Made by</h5> <a className="text-red-100 hover:text-white" href="https://www.twitter.com/fergusleen">@fergusleen</a></div>
@@ -168,13 +271,15 @@ const Hero = () => {
   )
 }
 
-const Cases = () => {
+const Cases = ({ total }) => {
   return (
     <div>
       <div className="max-w-7xl mx-auto py-8 px-4 sm:py-12 sm:px-6 lg:px-8">
+        { total && 
         <div className="text-center text-gray-500">
-          <b>6 378</b> new cases in Japan today.
-        </div>
+           <b>{total.today_cases}</b> new cases in Japan today.
+        </div> 
+        }
       </div>
     </div>
   )
@@ -184,7 +289,7 @@ const News = () => {
   return (
     <div>
       <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
-        <div className="lg:max-w-2xl lg:mx-auto lg:text-center">
+        <div className="lg:max-w-2xl lg:mx-auto text-center">
           <h3 className="text-3xl font-extrabold tracking-tight text-gra-900 sm:text-4xl">Latest Headlines</h3>
         </div>
         <div className="mt-10">
@@ -209,7 +314,7 @@ const FAQ = () => {
   return (
     <div className="bg-red-600">
       <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
-        <div className="lg:max-w-2xl lg:mx-auto lg:text-center">
+        <div className="lg:max-w-2xl lg:mx-auto text-center">
           <h3 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Frequently asked questions</h3>
         </div>
         <div className="mt-20">
