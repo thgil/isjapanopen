@@ -71,6 +71,14 @@ const articles = [
     title: "COVID border steps force 300 foreigners to decline Japan teacher jobs",
     description: "Japan's COVID-19 border restrictions appear to have prompted more than 300 people to decline offers for foreign language teacher and assistant positions in Japan, leading to a fall in the number of such instructors in the country, according to a Kyodo News survey.",
     image: "https://img.kyodonews.net/english/public/images/posts/a1576910b54f79779619a1e609c8f047/cropped_image_l.jpg"
+  },
+  {
+    id: 5,
+    url: "https://english.kyodonews.net/news/2022/01/19d6f4cd1c20-covid-border-steps-force-300-foreigners-to-decline-japan-teacher-jobs.html",
+    site_name: "Kyodo News+",
+    title: "Japan's daily coronavirus cases top 13,000 for 1st time in 4 months",
+    description: "Tokyo confirmed on Jan. 12 2,198 new daily coronavirus cases, the largest number of new infections in over four months, as the sixth wave of the pandemic spurred by the Omicron variant continues to spread.",
+    image: "https://img.kyodonews.net/english/public/images/posts/397aca5738644738b978e8129bfde55d/cropped_image_l.jpg"
   }
 ]
 
@@ -294,8 +302,8 @@ const News = () => {
         </div>
         <div className="mt-10">
           <dl className="space-y-10 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-10">
-            {articles.map((article, i) => (
-              <a key={article.id} href={article.url} className={classNames(i>=4 ? "hidden":"","border hover:border-red-500")}>
+            {articles.slice(-4).reverse().map((article, i) => (
+              <a key={article.id} href={article.url} className={"border hover:border-red-500"}>
                 <img alt={article.site_name} src={article.image}></img>
                 <div className="p-4">
                   <dt className="mt-1 font-semibold text-gray-800">{article.title}</dt>
