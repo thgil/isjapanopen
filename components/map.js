@@ -35,8 +35,23 @@ export default function Map({ data }) {
     setCategory(d);
   }
 
+  const total = {
+    active: 0,
+    confirmed: 0,
+    recovered: 0,
+    deaths: 0
+  }
+
   useEffect(()=> {
     d3.selectAll("path").style("fill", (d) => { return categories[category].color(d.properties) })
+
+    data.features.map((feature) => {
+      total.active += Number(feature.properties.active);
+      total.confirmed +=  Number(feature.properties.confirmed);
+      total.recovered +=  Number(feature.properties.recovered);
+      total.deaths +=  Number(feature.properties.deaths);
+    })
+
   }, [category])
 
   const ref = useD3(
@@ -96,10 +111,10 @@ export default function Map({ data }) {
           </div>
         ))}
       </nav>
-      <div className="mx-auto my-24 flex flex-row">
-        <svg ref={ref} className="transition-all duration-700" style={{
+      <div className="mx-auto my-24 flex-col md:flex-row hidden sm:flex">
+        <svg ref={ref} className="transition-all duration-700 shrink" style={{
           height: 700,
-          width: 800,
+          width: 700,
         }}>
         </svg>
         <div className="flex flex-col justify-center w-60">

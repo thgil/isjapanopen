@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Script from 'next/script'
+import Image from 'next/image'
 import Papa from 'papaparse'
 import Map from '../components/map'
 import { useState, useEffect } from 'react'
@@ -35,54 +35,56 @@ const faqs = [
 const articles = [
   {
     id: 0,
+    url: "https://english.kyodonews.net/news/2022/01/974eab354bf9-japan-set-to-maintain-entry-ban-at-least-until-end-of-feb.html",
+    site_name: "Kyodo News+",
+    title: "Japan further extends entry ban until end of Feb.",
+    description: "The Japanese government will further extend an entry ban on non-resident foreigners until the end of February, Prime Minister Fumio Kishida says.",
+    image: {
+      url: "https://img.kyodonews.net/english/public/images/posts/cae1d4ddbf125c4f1f1db692a2df876b/cropped_image_l.jpg",
+    }
+  },
+  {
+    id: 1,
     url: "https://www3.nhk.or.jp/nhkworld/en/news/20220110_20/",
     site_name: "NHK WORLD",
     title: "6,438 new cases of coronavirus reported in Japan | NHK WORLD-JAPAN News",
     description: "Japanese health officials say they confirmed 6,438 new cases of the coronavirus nationwide as of 6:30 p.m. on Monday.",
     image: {
       url: "https://www3.nhk.or.jp/nhkworld/upld/thumbnails/en/news/20220110_20_1066197_L.jpg",
-      width: "",
-      height: "",
-      type: ""
+
     }
   },
   {
-    id: 1,
+    id: 2,
     url: "https://mainichi.jp/english/articles/20220110/p2a/00m/0na/014000c",
     site_name: "The Mainichi",
     title: "Japan's COVID border restrictions keeping families apart, affecting relationships: group - The Mainichi",
     description: "TOKYO -- Amid severe restrictions on new entries by foreign nationals to Japan introduced in November 2021 following confirmation of the coronavirus's",
     image: {
       url: "https://cdn.mainichi.jp/vol1/2022/01/10/20220110p2a00m0na011000p/0c10.jpg?1",
-      width: "",
-      height: "",
-      type: ""
+
     }
   },
   {
-    id: 2,
+    id: 3,
     url: "https://www.japantimes.co.jp/news/2022/01/08/national/politics-diplomacy/omicron-fumio-kishida-covid-policy/",
     site_name: "The Mainichi",
     title: "Omicron spread puts Kishida's COVID policy to the test",
     description: "Kishida put three prefectures — Okinawa, Hiroshima and Yamaguchi — under quasi-emergency measures, but not all in his administration were on board with the decision.",
     image: {
       url: "https://cdn-japantimes.com/wp-content/uploads/2022/01/np_file_134143-870x489.jpeg",
-      width: "",
-      height: "",
-      type: ""
+
     }
   },
   {
-    id: 3,
+    id: 4,
     url: "https://english.kyodonews.net/news/2022/01/19d6f4cd1c20-covid-border-steps-force-300-foreigners-to-decline-japan-teacher-jobs.html",
     site_name: "The Mainichi",
     title: "COVID border steps force 300 foreigners to decline Japan teacher jobs",
     description: "Japan's COVID-19 border restrictions appear to have prompted more than 300 people to decline offers for foreign language teacher and assistant positions in Japan, leading to a fall in the number of such instructors in the country, according to a Kyodo News survey.",
     image: {
       url: "https://img.kyodonews.net/english/public/images/posts/a1576910b54f79779619a1e609c8f047/cropped_image_l.jpg",
-      width: "",
-      height: "",
-      type: ""
+
     }
   }
 ]
@@ -202,9 +204,9 @@ const News = () => {
         </div>
         <div className="mt-10">
           <dl className="space-y-10 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-10">
-            {articles.map((article) => (
-              <a key={article.id} href={article.url} className="border hover:border-red-500">
-                <img src={article.image.url}></img>
+            {articles.map((article, i) => (
+              <a key={article.id} href={article.url} className={classNames(i>=4 ? "hidden":"","border hover:border-red-500")}>
+                <Image alt={article.site_name} src={article.image.url} layout="fill"></Image>
                 <div className="p-4">
                   <dt className="mt-1 font-semibold text-gray-800">{article.title}</dt>
                   <dd className="mt-3 text-gray-400">{article.description}</dd>
@@ -238,4 +240,8 @@ const FAQ = () => {
       </div>
     </div>
   )
+}
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
 }
