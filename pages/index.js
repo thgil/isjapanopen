@@ -254,6 +254,15 @@ export default function Home() {
         <Cases total={total}></Cases>
         <News></News>
         <FAQ></FAQ>
+        {!map && (
+          <div className="text-center py-12 sm:py-24 w-24 mx-auto">
+            <svg className="text-center animate-spin -ml-1 mr-3 h-5 w-5 text-gray-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            <span>Loading map data..</span>
+          </div>
+        )}
         {map && <Map data={map} width={width}></Map>}
       </main> 
       <footer>
@@ -330,7 +339,7 @@ const News = () => {
 const FAQ = () => {
   return (
     <div className="bg-red-600">
-      <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto py-16 px-4 sm:pt-24 sm:pb-12 sm:px-6 lg:px-8">
         <div className="lg:max-w-2xl lg:mx-auto text-center">
           <h3 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Frequently asked questions</h3>
         </div>
@@ -344,6 +353,7 @@ const FAQ = () => {
             ))}
           </dl>
         </div>
+        <div className="text-right text-xs pt-16 text-red-100 hover:text-white"><a href="https://www.twitter.com/fergusleen">Have a question?</a></div>
       </div>
     </div>
   )
