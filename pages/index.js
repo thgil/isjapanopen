@@ -7,28 +7,28 @@ const faqs = [
   {
     id: 1,
     question: "When will Japan lift its travel ban and reopen for tourists?",
-    answer:
-      "No one knows yet. But it will be at least a couple of months.",
+    answer: "No one knows yet. Japan just further extended the entry ban until the end of February. Business people and students will likely be allowed in before tourists.",
   },
   {
     id: 2,
     question: "Can I go to Japan?",
-    answer:
-      "You cannot visit Japan unless you are a Japanese citizen.",
+    answer: "Not likely. Travel for tourism is still not permitted, and there is no indication that this will change in the short term. On November 29, Japan announced that, due to the Omicron variant, all foreign visitors are banned from entering Japan. This includes business people and students.",
   },
-  {
+  { 
     id: 3,
-    question: "I thought Japan eased restrictions?",
-    answer:
-      "That lasted for only a few weeks, and Japan never actaully reopened for tourists.",
+    question: "Who can go to Japan now?",
+    answer: "Japanese citizens and foreign residents with a reentry permit are generally allowed to reenter Japan but must comply with strict pre- and post- travel testing requirements and quarantine upon arrival."
   },
   {
     id: 4,
     question: "When is the next update from the Japanese government?",
-    answer:
-      "A decision on whether to maintain the closure is expected sometime within the next week, in mid-January 2022.",
+    answer: "A decision on whether to maintain the closure is expected sometime within the next week, in mid-January 2022.",
   },
-  // More questions...
+  {
+    id: 5,
+    question: "I thought Japan eased restrictions?",
+    answer: "That lasted for only a few weeks, and Japan never reopened for tourists.",
+  },
 ]
 
 const articles = [
@@ -222,27 +222,27 @@ export default function Home() {
   return (
     <div className="">
       <Head>
-        <title>Japan Borders are Closed</title>
+        <title>Not yet | Can I go to Japan? </title>
 
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css"></link>
         <link rel="canonical" herf="" />
 
-        <meta name="description" content="Can I go to Japan? Japan is NOT open for tourist visas" />
+        <meta name="description" content="Latest info about Japan's entry ban and coronavirus" />
         <meta name="keywords" content="Japan, Open, Border, Visa, Tokyo, Osaka"></meta>
         <meta name="robots" content="index, follow" />
 
         <meta property="og:url" content="https://www.canigotojapan.com/" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Can I go to Japan? - Probably not yet but.." />
-        <meta property="og:description" content="Want to find out about the Coronavirus situation in Japan? We have all the info about when you can go!" />
+        <meta property="og:title" content="Can I go to Japan? - Not yet" />
+        <meta property="og:description" content="Latest info about Japan's entry ban and coronavirus" />
         <meta property="og:image" content="https://www.canigotojapan.com/og-canigotojapan.png" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="canigotojapan.com" />
         <meta property="twitter:url" content="https://www.canigotojapan.com/" />
-        <meta name="twitter:title" content="Can I go to Japan? - Probably not yet but.." />
-        <meta name="twitter:description" content="Want to find out about the Coronavirus situation in Japan? We have all the info about when you can go!" />
+        <meta name="twitter:title" content="Can I go to Japan? - Not yet" />
+        <meta name="twitter:description" content="Latest info about Japan's entry ban and coronavirus" />
         <meta name="twitter:image" content="https://www.canigotojapan.com/og-canigotojapan.png" />
 
         <meta name="viewport" content="width=device-width,initial-scale=1.0"></meta>
@@ -250,10 +250,10 @@ export default function Home() {
         <script defer data-domain="canigotojapan.com" src="https://plausible.io/js/plausible.js"></script>
       </Head>
       <main>
-        <Hero></Hero>
-        <Cases total={total}></Cases>
-        <News></News>
-        <FAQ></FAQ>
+        <Hero />
+        <Cases total={total} />
+        <News />
+        <FAQ />
         {!map && (
           <div className="text-center py-12 sm:py-24 w-24 mx-auto">
             <svg className="text-center animate-spin -ml-1 mr-3 h-5 w-5 text-gray-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -263,7 +263,7 @@ export default function Home() {
             <span>Loading map data..</span>
           </div>
         )}
-        {map && <Map data={map} width={width}></Map>}
+        {map && <Map data={map} width={width} />}
       </main> 
       <footer>
         <div className="text-center text-red-300 text-sm bg-red-600 p-12"><h5>Made by</h5> <a className="text-red-100 hover:text-white" href="https://www.twitter.com/fergusleen">@fergusleen</a></div>
@@ -277,11 +277,11 @@ const Hero = () => {
       <div className="text-center text-xs text-gray-500 mt-2">Last updated on <b>2022/01/14</b> at 01:46 (GMT+9)</div>
       <div className="max-w-7xl mx-auto mt-24 py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h1 className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+          <h1 className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-7xl">
             Is Japan open yet?
           </h1>
-          <h2 className="max-w-xl mt-5 mx-auto text-3xl text-gray-700">
-            No. Japan borders are still closed :(
+          <h2 className="max-w-xl mt-5 mx-auto text-4xl text-gray-700">
+            No. Japan is still closed :(
           </h2>
         </div>
       </div>
@@ -289,16 +289,14 @@ const Hero = () => {
   )
 }
 
-const Cases = ({ total }) => {
+const Cases = () => {
   return (
     <div>
       <div className="max-w-7xl mx-auto py-8 px-4 sm:py-12 sm:px-6 lg:px-8">
-        { total && 
         <div className="text-center text-gray-500">
-           <div><b>{numberWithSpaces(total.today_cases)}</b> new cases today</div>
-           <div className="text-xs text-gray-300 mt-1"><b>13 057</b> new cases yesterday</div>
+           <div><b>{numberWithSpaces(18673)}</b> new cases today</div>
+           <div className="text-xs text-gray-300 mt-1"><b>{numberWithSpaces(13057)}</b> new cases yesterday</div>
         </div> 
-        }
       </div>
     </div>
   )

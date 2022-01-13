@@ -5,11 +5,11 @@ import { useState, useEffect } from 'react'
 const categories = [
   {
     name: 'Today Cases',
-    color: (d) => { return d3.scaleSequential(d3.interpolateReds).domain([0, 2000])(d.today_cases) }
+    color: (d) => { return d3.scaleSequential(d3.interpolateReds).domain([0, 3000])(d.today_cases) }
   },
   {
     name: 'Total Cases',
-    color: (d) => { return d3.scaleSequential(d3.interpolateTurbo).domain([0, 350000])(d.total_cases) }
+    color: (d) => { return d3.scaleSequential(d3.interpolateTurbo).domain([0, 400000])(d.total_cases) }
   },
   {
     name: 'Deaths',
@@ -17,7 +17,7 @@ const categories = [
   },
   {
     name: 'Total Deaths',
-    color: (d) => { return d3.scaleSequential(d3.interpolateBlues).domain([0, 3000])(d.total_deaths) }
+    color: (d) => { return d3.scaleSequential(d3.interpolateBlues).domain([0, 3500])(d.total_deaths) }
   }
 ]
 
@@ -36,7 +36,7 @@ export default function Map({ data, width }) {
 
   useEffect(() => {
     // Refill our map when category is changed
-    d3.selectAll("path").style("fill", (d) => { return categories[category].color(d.properties) })
+    d3.selectAll("path").style("fill", (d) => { if(!d) return "#000"; return categories[category].color(d.properties) })
   }, [category])
 
   const ref = useD3(
