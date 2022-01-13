@@ -320,8 +320,8 @@ const News = () => {
         <div className="mt-10">
           <div className="space-y-8 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-10">
             {articles.slice(-articleCount).reverse().map((article, i) => (
-              <div key={article.id}>
-              <a href={article.url} className={"sm:border hover:border-red-500 w-full"}>
+              <div key={article.id} className="sm:border hover:border-red-500">
+              <a href={article.url}>
                 <img alt={article.site_name} src={article.image}></img>
                 <div className="py-2 sm:p-4">
                   <h2 className="mt-1 font-semibold text-gray-800">{article.title}</h2>
