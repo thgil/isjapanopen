@@ -150,7 +150,7 @@ export default function Home() {
         complete: (corona) => {
 
           // Get today's date and convert it to yyyy/mm/dd with no leading 0's
-          const today = new Date().toISOString().split('T')[0].replace(/-0+/g, '/').replaceAll('-','/')
+          const today = new Date('2022-01-12').toISOString().split('T')[0].replace(/-0+/g, '/').replaceAll('-','/')
 
           // Filter data for just today's date
           const today_data = corona.data.filter((row) => row[0] === today )
@@ -184,7 +184,7 @@ export default function Home() {
     getMapData();
   }, []);
   
-  const updateFeatures = (map, data, date) => {
+  const updateFeatures = (map, data) => {
     data.map((region) => {
       // get prefecture code
       const code = region[1];
@@ -294,6 +294,12 @@ const Cases = ({ total }) => {
 }
 
 const News = () => {
+  const [ articleCount, setArticleCount ] = useState(4)
+
+  function handleMoreArticles() {
+    setArticleCount(articleCount+2);
+  }
+
   return (
     <div>
       <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
@@ -302,7 +308,7 @@ const News = () => {
         </div>
         <div className="mt-10">
           <dl className="space-y-10 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-10">
-            {articles.slice(-4).reverse().map((article, i) => (
+            {articles.slice(-articleCount).reverse().map((article, i) => (
               <a key={article.id} href={article.url} className={"border hover:border-red-500"}>
                 <img alt={article.site_name} src={article.image}></img>
                 <div className="p-4">
@@ -312,6 +318,9 @@ const News = () => {
               </a>
             ))}
           </dl>
+          <div className="text-center mt-16">
+          { articleCount < articles.length && (<button onClick={handleMoreArticles} className="text-sm text-gray-600 hover:text-black">More articles</button>)}
+          </div>
         </div>
       </div>
     </div>
