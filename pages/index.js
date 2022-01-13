@@ -33,14 +33,6 @@ const faqs = [
 
 const articles = [
   {
-    id: 0,
-    url: "https://english.kyodonews.net/news/2022/01/974eab354bf9-japan-set-to-maintain-entry-ban-at-least-until-end-of-feb.html",
-    site_name: "Kyodo News+",
-    title: "Japan further extends entry ban until end of Feb.",
-    description: "The Japanese government will further extend an entry ban on non-resident foreigners until the end of February, Prime Minister Fumio Kishida says.",
-    image: "https://img.kyodonews.net/english/public/images/posts/cae1d4ddbf125c4f1f1db692a2df876b/cropped_image_l.jpg"
-  },
-  {
     id: 1,
     url: "https://www3.nhk.or.jp/nhkworld/en/news/20220110_20/",
     site_name: "NHK WORLD",
@@ -79,7 +71,15 @@ const articles = [
     title: "Japan's daily coronavirus cases top 13,000 for 1st time in 4 months",
     description: "Tokyo confirmed on Jan. 12 2,198 new daily coronavirus cases, the largest number of new infections in over four months, as the sixth wave of the pandemic spurred by the Omicron variant continues to spread.",
     image: "https://img.kyodonews.net/english/public/images/posts/397aca5738644738b978e8129bfde55d/cropped_image_l.jpg"
-  }
+  },
+  {
+    id: 6,
+    url: "https://english.kyodonews.net/news/2022/01/974eab354bf9-japan-set-to-maintain-entry-ban-at-least-until-end-of-feb.html",
+    site_name: "Kyodo News+",
+    title: "Japan further extends entry ban until end of Feb.",
+    description: "The Japanese government will further extend an entry ban on non-resident foreigners until the end of February, Prime Minister Fumio Kishida says.",
+    image: "https://img.kyodonews.net/english/public/images/posts/cae1d4ddbf125c4f1f1db692a2df876b/cropped_image_l.jpg"
+  },
 ]
 
 const pref_code= [
