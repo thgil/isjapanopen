@@ -150,7 +150,7 @@ export default function Home() {
         complete: (corona) => {
 
           // Get today's date and convert it to yyyy/mm/dd with no leading 0's
-          const today = new Date('2022-01-12').toISOString().split('T')[0].replace(/-0+/g, '/').replaceAll('-','/')
+          const today = new Date('2022-01-13').toISOString().split('T')[0].replace(/-0+/g, '/').replaceAll('-','/')
 
           // Filter data for just today's date
           const today_data = corona.data.filter((row) => row[0] === today )
@@ -274,6 +274,7 @@ export default function Home() {
 const Hero = () => {
   return (
     <div className="bg-white">
+      <div className="text-center text-xs text-gray-500 mt-2">Last updated on <b>2022/01/14</b> at 01:46 (GMT+9)</div>
       <div className="max-w-7xl mx-auto mt-24 py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
         <div className="text-center">
           <h1 className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
@@ -294,7 +295,8 @@ const Cases = ({ total }) => {
       <div className="max-w-7xl mx-auto py-8 px-4 sm:py-12 sm:px-6 lg:px-8">
         { total && 
         <div className="text-center text-gray-500">
-           <b>{numberWithSpaces(total.today_cases)}</b> new cases in Japan today.
+           <div><b>{numberWithSpaces(total.today_cases)}</b> new cases today</div>
+           <div className="text-xs text-gray-300 mt-1"><b>13 057</b> new cases yesterday</div>
         </div> 
         }
       </div>
@@ -316,17 +318,19 @@ const News = () => {
           <h3 className="text-3xl font-extrabold tracking-tight text-gra-900 sm:text-4xl">Latest Headlines</h3>
         </div>
         <div className="mt-10">
-          <dl className="space-y-10 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-10">
+          <div className="space-y-8 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-10">
             {articles.slice(-articleCount).reverse().map((article, i) => (
-              <a key={article.id} href={article.url} className={"border hover:border-red-500"}>
+              <div key={article.id}>
+              <a href={article.url} className={"sm:border hover:border-red-500 w-full"}>
                 <img alt={article.site_name} src={article.image}></img>
-                <div className="p-4">
-                  <dt className="mt-1 font-semibold text-gray-800">{article.title}</dt>
-                  <dd className="mt-3 text-gray-400">{article.description}</dd>
+                <div className="py-2 sm:p-4">
+                  <h2 className="mt-1 font-semibold text-gray-800">{article.title}</h2>
+                  <p className="mt-1 sm:mt-3 text-gray-400">{article.description}</p>
                 </div>
               </a>
+              </div>
             ))}
-          </dl>
+          </div>
           <div className="text-center mt-16">
           { articleCount < articles.length && (<button onClick={handleMoreArticles} className="text-sm text-gray-600 hover:text-black">More articles</button>)}
           </div>
