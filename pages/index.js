@@ -80,6 +80,14 @@ const articles = [
     description: "The Japanese government will further extend an entry ban on non-resident foreigners until the end of February, Prime Minister Fumio Kishida says.",
     image: "https://img.kyodonews.net/english/public/images/posts/cae1d4ddbf125c4f1f1db692a2df876b/cropped_image_l.jpg"
   },
+  {
+    id: 7,
+    url: "https://www.asahi.com/ajw/articles/14522102",
+    site_name: "The Asahi Shimbun",
+    title: "COVID-19 cases top 20,000 nationwide; dire cases surge",
+    description: "Fresh cases of COVID-19 across the nation topped 20,000 on Jan. 14 for the first time since Sept. 1, according to preliminary figures as of 6 p.m.",
+    image: "https://p.potaufeu.asahi.com/27c5-p/picture/26592497/4924848838c8a154b034432d2cb7cac1.jpg"
+  },
 ]
 
 const pref_code= [
@@ -150,7 +158,7 @@ export default function Home() {
         complete: (corona) => {
 
           // Get today's date and convert it to yyyy/mm/dd with no leading 0's
-          const today = new Date('2022-01-13').toISOString().split('T')[0].replace(/-0+/g, '/').replaceAll('-','/')
+          const today = new Date('2022-01-14').toISOString().split('T')[0].replace(/-0+/g, '/').replaceAll('-','/')
 
           // Filter data for just today's date
           const today_data = corona.data.filter((row) => row[0] === today )
@@ -172,12 +180,13 @@ export default function Home() {
 
           geomap.features.map((feature) => {
             temp.today_cases += Number(feature.properties.today_cases);
-            temp.cases += Number(feature.properties.temp_cases);
+            temp.cases += Number(feature.properties.total_cases);
             temp.today_deaths +=  Number(feature.properties.today_deaths);
             temp.deaths +=  Number(feature.properties.total_deaths);
           })
       
           setTotal(temp)
+          console.log(temp)
         }
       })
     }
@@ -274,7 +283,7 @@ export default function Home() {
 const Hero = () => {
   return (
     <div className="bg-white">
-      <div className="text-center text-xs text-gray-500 mt-2">Last updated on <b>2022/01/14</b> at 01:46 (GMT+9)</div>
+      <div className="text-center text-xs text-gray-500 mt-2">Last updated on <b>2022/01/15</b> at 00:05 (GMT+9)</div>
       <div className="max-w-7xl mx-auto mt-24 py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
         <div className="text-center">
           <h1 className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-7xl">
@@ -294,8 +303,8 @@ const Cases = () => {
     <div>
       <div className="max-w-7xl mx-auto py-8 px-4 sm:py-12 sm:px-6 lg:px-8">
         <div className="text-center text-gray-500">
-           <div><b>{numberWithSpaces(18673)}</b> new cases today</div>
-           <div className="text-xs text-gray-300 mt-1"><b>{numberWithSpaces(13057)}</b> new cases yesterday</div>
+           <div><b>{numberWithSpaces(21891)}</b> new cases today</div>
+           <div className="text-xs text-gray-300 mt-1"><b>{numberWithSpaces(18673)}</b> new cases yesterday</div>
         </div> 
       </div>
     </div>
