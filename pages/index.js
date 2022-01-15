@@ -231,7 +231,7 @@ export default function Home() {
   return (
     <div className="">
       <Head>
-        <title>Not yet | Can I go to Japan? </title>
+        <title>Can I go to Japan? | Not yet</title>
 
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css"></link>
@@ -245,14 +245,14 @@ export default function Home() {
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Can I go to Japan? - Not yet" />
         <meta property="og:description" content="Latest info about Japan's entry ban and coronavirus" />
-        <meta property="og:image" content="https://www.canigotojapan.com/og-canigotojapan.png" />
+        <meta property="og:image" content="https://www.canigotojapan.com/og-canigotojapan2.png" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="canigotojapan.com" />
         <meta property="twitter:url" content="https://www.canigotojapan.com/" />
         <meta name="twitter:title" content="Can I go to Japan? - Not yet" />
         <meta name="twitter:description" content="Latest info about Japan's entry ban and coronavirus" />
-        <meta name="twitter:image" content="https://www.canigotojapan.com/og-canigotojapan.png" />
+        <meta name="twitter:image" content="https://www.canigotojapan.com/og-canigotojapan2.png" />
 
         <meta name="viewport" content="width=device-width,initial-scale=1.0"></meta>
 
@@ -273,6 +273,7 @@ export default function Home() {
           </div>
         )}
         {map && <Map data={map} width={width} />}
+        <CTA />
       </main> 
       <footer>
         <div className="text-center text-red-300 text-sm bg-red-600 p-12"><h5>Made by</h5> <a className="text-red-100 hover:text-white" href="https://www.twitter.com/fergusleen">@fergusleen</a></div>
@@ -369,6 +370,108 @@ const FAQ = () => {
     </div>
   )
 }
+
+const CTA = () => {
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false)
+  const [subbed, setSubbed] = useState(false)
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if(!email) return setError('No email');
+
+    setLoading(true);
+
+    const d = await fetch('https://emaildb.vercel.app/api/email', {
+      method: 'POST',
+      SameSite: 'Strict',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: email,
+      })
+    })
+    .then(res => res.json())
+    .then((res) => {
+      if(res.err) {
+        setLoading(false);
+        setError(res.err)
+        return
+      }
+
+      setSubbed(true);
+      return;
+    })
+    .catch((err) => {
+      setLoading(false);
+      console.error(err);
+    })
+
+    setLoading(false);
+  }
+
+  function handleChange(e) {
+    setEmail(e.target.value);
+
+    setError('');
+  }
+
+  return (
+    <div className="bg-white py-16 sm:py-24">
+      <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
+          <div className="relative">
+            <div className="sm:text-center">
+              <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
+                Get notified when Japan opens
+              </h2>
+            </div>
+            { !subbed && (
+            <form onSubmit={handleSubmit} className="mt-12 sm:mx-auto sm:max-w-lg sm:flex">
+              <div className="min-w-0 flex-1">
+                <label htmlFor="cta-email" className="sr-only">
+                  Email address
+                </label>
+                <input
+                  id="cta-email"
+                  type="email"
+                  onChange={handleChange}
+                  className="w-full px-5 py-3 border border-gray-300 shadow-sm placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs rounded-md"
+                  placeholder="Enter your email"
+                />
+                <p className="block h-4 text-red-500 text-xs italic">{error}</p>
+              </div>
+              <div className="mt-4 sm:mt-0 sm:ml-3">
+                { !loading && (
+                <button
+                  type="submit"
+                  className="block w-full rounded-md border border-transparent px-5 py-3 bg-red-600 text-base font-medium text-white shadow hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 focus:ring-offset-red-600 sm:px-10"
+                >
+                  Notify me
+                </button>
+                )}
+                { loading && (
+                  <div className="block w-full rounded-md border border-transparent px-5 py-3 bg-red-700 text-base font-medium text-white shadow sm:px-10">
+                    <svg className="animate-spin -ml-1 mr-3 h-5 w-full text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                  </div>
+                )}
+              </div>
+            </form>
+            )}
+            { subbed && (
+              <div className="text-center mt-12 text-gray-800">Done.</div>
+            )}
+          </div>
+        </div>
+      </div>
+  )
+}
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')

@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 const categories = [
   {
     name: 'Today Cases',
-    color: (d) => { return d3.scaleSequential(d3.interpolateReds).domain([0, 3000])(d.today_cases) }
+    color: (d) => { return d3.scaleSequential(d3.interpolateReds).domain([0, 4000])(d.today_cases) }
   },
   {
     name: 'Total Cases',
@@ -17,7 +17,7 @@ const categories = [
   },
   {
     name: 'Total Deaths',
-    color: (d) => { return d3.scaleSequential(d3.interpolateBlues).domain([0, 3500])(d.total_deaths) }
+    color: (d) => { return d3.scaleSequential(d3.interpolateBlues).domain([0, 4000])(d.total_deaths) }
   }
 ]
 
@@ -84,7 +84,7 @@ export default function Map({ data, width }) {
   return (
     <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
       <div className="lg:max-w-2xl lg:mx-auto text-center mt-16">
-        <h3 className="text-3xl font-extrabold tracking-tight text-gra-900 sm:text-4xl">Coronavirus in Japan</h3>
+        <h3 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Coronavirus in Japan</h3>
       </div>
       <nav className="mx-5 my-2 flex flex-wrap justify-center">
         {categories.map((item, c) => (
