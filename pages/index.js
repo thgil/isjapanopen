@@ -166,7 +166,7 @@ export default function Home() {
         complete: (corona) => {
 
           // Get today's date and convert it to yyyy/mm/dd with no leading 0's
-          const today = new Date('2022-01-15').toISOString().split('T')[0].replace(/-0+/g, '/').replaceAll('-','/')
+          const today = new Date('2022-01-14').toISOString().split('T')[0].replace(/-0+/g, '/').replaceAll('-','/')
 
           // Filter data for just today's date
           const today_data = corona.data.filter((row) => row[0] === today )
