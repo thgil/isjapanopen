@@ -88,6 +88,14 @@ const articles = [
     description: "Fresh cases of COVID-19 across the nation topped 20,000 on Jan. 14 for the first time since Sept. 1, according to preliminary figures as of 6 p.m.",
     image: "https://p.potaufeu.asahi.com/27c5-p/picture/26592497/4924848838c8a154b034432d2cb7cac1.jpg"
   },
+  {
+    id: 8,
+    url: "https://www.japantimes.co.jp/news/2022/01/15/national/first-omicron-deaths-japan/",
+    site_name: "The Japan Times",
+    title: "Japan confirms first deaths among COVID-19 patients with the omicron variant",
+    description: "Both patients, a woman in Chiba and a man in Shizuoka, were elderly and had pre-existing conditions.",
+    image: "https://cdn-japantimes.com/wp-content/uploads/2022/01/np_file_135355-870x489.jpeg"
+  }
 ]
 
 const pref_code= [
@@ -158,7 +166,7 @@ export default function Home() {
         complete: (corona) => {
 
           // Get today's date and convert it to yyyy/mm/dd with no leading 0's
-          const today = new Date('2022-01-14').toISOString().split('T')[0].replace(/-0+/g, '/').replaceAll('-','/')
+          const today = new Date('2022-01-15').toISOString().split('T')[0].replace(/-0+/g, '/').replaceAll('-','/')
 
           // Filter data for just today's date
           const today_data = corona.data.filter((row) => row[0] === today )
