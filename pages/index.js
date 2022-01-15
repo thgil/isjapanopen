@@ -98,7 +98,7 @@ const articles = [
   }
 ]
 
-const pref_code= [
+const pref_code = [
   { name: "Hokkaido", code: 1 },
   { name: "Aomori", code: 2 },
   { name: "Iwate", code: 3 },
@@ -148,6 +148,17 @@ const pref_code= [
   { name: "Okinawa", code: 47 }
 ]
 
+// Manual case totals since data can be slow/delayed
+const man_total = [
+  18673,
+  21891,
+  25630,
+]
+
+const last_update = <span>Last updated on <b>2022/01/16</b> at 00:59 (GMT+9)</span>
+// Sometimes data isn't updated on time
+const data_date = '2022-01-14'
+
 export default function Home() {
   const [ map, setMap ] = useState();
   const [ coronaData, setCoronaData ] = useState();
@@ -166,7 +177,7 @@ export default function Home() {
         complete: (corona) => {
 
           // Get today's date and convert it to yyyy/mm/dd with no leading 0's
-          const today = new Date('2022-01-14').toISOString().split('T')[0].replace(/-0+/g, '/').replaceAll('-','/')
+          const today = new Date(data_date).toISOString().split('T')[0].replace(/-0+/g, '/').replaceAll('-','/')
 
           // Filter data for just today's date
           const today_data = corona.data.filter((row) => row[0] === today )
@@ -292,7 +303,7 @@ export default function Home() {
 const Hero = () => {
   return (
     <div className="bg-white">
-      <div className="text-center text-xs text-gray-500 mt-2">Last updated on <b>2022/01/15</b> at 00:05 (GMT+9)</div>
+      <div className="text-center text-xs text-gray-500 mt-2">{last_update}</div>
       <div className="max-w-7xl mx-auto mt-24 py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
         <div className="text-center">
           <h1 className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-7xl">
@@ -312,8 +323,8 @@ const Cases = () => {
     <div>
       <div className="max-w-7xl mx-auto py-8 px-4 sm:py-12 sm:px-6 lg:px-8">
         <div className="text-center text-gray-500">
-           <div><b>{numberWithSpaces(21891)}</b> new cases today</div>
-           <div className="text-xs text-gray-300 mt-1"><b>{numberWithSpaces(18673)}</b> new cases yesterday</div>
+           <div><b>{numberWithSpaces(man_total[man_total.length-1])}</b> new cases today</div>
+           <div className="text-xs text-gray-300 mt-1"><b>{numberWithSpaces(man_total[man_total.length-2])}</b> new cases yesterday</div>
         </div> 
       </div>
     </div>
@@ -486,5 +497,5 @@ function classNames(...classes) {
 }
 
 function numberWithSpaces(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  return String(x).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
