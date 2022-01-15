@@ -245,14 +245,14 @@ export default function Home() {
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Can I go to Japan? - Not yet" />
         <meta property="og:description" content="Latest info about Japan's entry ban and coronavirus" />
-        <meta property="og:image" content="https://www.canigotojapan.com/og-canigotojapan2.png" />
+        <meta property="og:image" content="https://www.canigotojapan.com/og-canigotojapan.png" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="canigotojapan.com" />
         <meta property="twitter:url" content="https://www.canigotojapan.com/" />
         <meta name="twitter:title" content="Can I go to Japan? - Not yet" />
         <meta name="twitter:description" content="Latest info about Japan's entry ban and coronavirus" />
-        <meta name="twitter:image" content="https://www.canigotojapan.com/og-canigotojapan2.png" />
+        <meta name="twitter:image" content="https://www.canigotojapan.com/og-canigotojapan.png" />
 
         <meta name="viewport" content="width=device-width,initial-scale=1.0"></meta>
 
