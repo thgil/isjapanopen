@@ -157,7 +157,7 @@ const man_total = [
 
 const last_update = <span>Last updated on <b>2022/01/16</b> at 00:59 (GMT+9)</span>
 // Sometimes data isn't updated on time
-const data_date = '2022-01-14'
+const data_date = '2022-01-15'
 
 export default function Home() {
   const [ map, setMap ] = useState();
