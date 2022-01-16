@@ -95,6 +95,14 @@ const articles = [
     title: "Japan confirms first deaths among COVID-19 patients with the omicron variant",
     description: "Both patients, a woman in Chiba and a man in Shizuoka, were elderly and had pre-existing conditions.",
     image: "https://cdn-japantimes.com/wp-content/uploads/2022/01/np_file_135355-870x489.jpeg"
+  },
+  {
+    id: 9,
+    url: "https://www3.nhk.or.jp/nhkworld/en/news/20220116_350/",
+    site_name: "NHK WORLD",
+    title: "Japan's new coronavirus cases continue to surge",
+    description: "Japan continues to face a surge in new coronavirus cases across the country. Officials are speeding up booster shots to stem the outbreak.",
+    image: "https://www3.nhk.or.jp/nhkworld/upld/thumbnails/en/news/20220116_350_1068695_L.jpg"
   }
 ]
 
@@ -153,11 +161,12 @@ const man_total = [
   18673,
   21891,
   25630,
+  25658,
 ]
 
-const last_update = <span>Last updated on <b>2022/01/16</b> at 00:59 (GMT+9)</span>
+const last_update = <span>Last updated on <b>2022/01/17</b> at 04:19 (GMT+9)</span>
 // Sometimes data isn't updated on time
-const data_date = '2022-01-15'
+const data_date = '2022-01-16'
 
 export default function Home() {
   const [ map, setMap ] = useState();
