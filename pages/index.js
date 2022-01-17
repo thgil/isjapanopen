@@ -103,6 +103,14 @@ const articles = [
     title: "Japan's new coronavirus cases continue to surge",
     description: "Japan continues to face a surge in new coronavirus cases across the country. Officials are speeding up booster shots to stem the outbreak.",
     image: "https://www3.nhk.or.jp/nhkworld/upld/thumbnails/en/news/20220116_350_1068695_L.jpg"
+  },
+  {
+    id: 10,
+    url: "https://mainichi.jp/english/articles/20220117/p2g/00m/0na/031000c",
+    site_name: "The Mainichi",
+    title: "Japan looks to expand COVID quasi-emergency to Tokyo, 10 other prefs.",
+    description: "Japan is considering placing 11 prefectures, including Tokyo and its vicinity, under a COVID-19 quasi-state of emergency to curb rapidly spreading coronavirus cases",
+    image: "https://cdn.mainichi.jp/vol1/2022/01/17/20220117p2g00m0na030000p/0c10.jpg?1"
   }
 ]
 
@@ -162,11 +170,12 @@ const man_total = [
   21891,
   25630,
   25658,
+  20991,
 ]
 
-const last_update = <span>Last updated on <b>2022/01/17</b> at 04:19 (GMT+9)</span>
+const last_update = <span>Last updated on <b>2022/01/18</b> at 01:18 (GMT+9)</span>
 // Sometimes data isn't updated on time
-const data_date = '2022-01-16'
+const data_date = '2022-01-17'
 
 export default function Home() {
   const [ map, setMap ] = useState();
