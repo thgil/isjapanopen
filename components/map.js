@@ -5,11 +5,11 @@ import { useState, useEffect } from 'react'
 const categories = [
   {
     name: 'Today Cases',
-    color: (d) => { return d3.scaleSequential(d3.interpolateReds).domain([0, 4000])(d.today_cases) }
+    color: (d) => { return d3.scaleSequential(d3.interpolateReds).domain([0, 5400])(d.today_cases) }
   },
   {
     name: 'Total Cases',
-    color: (d) => { return d3.scaleSequential(d3.interpolateTurbo).domain([0, 400000])(d.total_cases) }
+    color: (d) => { return d3.scaleSequential(d3.interpolateTurbo).domain([0, 410000])(d.total_cases) }
   },
   {
     name: 'Deaths',
@@ -17,7 +17,7 @@ const categories = [
   },
   {
     name: 'Total Deaths',
-    color: (d) => { return d3.scaleSequential(d3.interpolateBlues).domain([0, 4000])(d.total_deaths) }
+    color: (d) => { return d3.scaleSequential(d3.interpolateBlues).domain([0, 3200])(d.total_deaths) }
   }
 ]
 

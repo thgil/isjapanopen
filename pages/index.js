@@ -111,7 +111,23 @@ const articles = [
     title: "Japan looks to expand COVID quasi-emergency to Tokyo, 10 other prefs.",
     description: "Japan is considering placing 11 prefectures, including Tokyo and its vicinity, under a COVID-19 quasi-state of emergency to curb rapidly spreading coronavirus cases",
     image: "https://cdn.mainichi.jp/vol1/2022/01/17/20220117p2g00m0na030000p/0c10.jpg?1"
-  }
+  },
+  {
+    id: 11,
+    url: "https://english.kyodonews.net/news/2022/01/e566a5d02e19-urgent-japans-osaka-to-see-daily-record-of-about-6000-covid-19-cases.html",
+    site_name: "Kyodo News+",
+    title: "Japan's daily COVID-19 cases top 30,000, setting new record",
+    description: "Japan's confirmed daily coronavirus cases top 30,000 for the first time, surpassing the previous record of 25,992 registered in August last year, according to a Kyodo News tally.",
+    image: "https://img.kyodonews.net/english/public/images/posts/3812d36c0b91f26ffe58215341cfcac0/cropped_image_l.jpg"
+  },
+  {
+    id: 12,
+    url: "https://www.business-standard.com/article/international/japan-ready-to-expand-coronavirus-restrictions-as-infections-surge-122011800907_1.html",
+    site_name: "Business Standard",
+    title: "Japan ready to expand coronavirus restrictions as infections surge",
+    description: "Japan's government is preparing social restrictions in Tokyo and other regions as the omicron variant of the coronavirus infects more people.",
+    image: "https://bsmedia.business-standard.com/_media/bs/img/article/2021-11/05/full/1636111670-4079.jpg"
+  },
 ]
 
 const pref_code = [
@@ -171,11 +187,12 @@ const man_total = [
   25630,
   25658,
   20991,
+  32197,
 ]
 
-const last_update = <span>Last updated on <b>2022/01/18</b> at 01:18 (GMT+9)</span>
+const last_update = <span>Last updated on <b>2022/01/19</b> at 00:25 (GMT+9)</span>
 // Sometimes data isn't updated on time
-const data_date = '2022-01-17'
+const data_date = '2022-01-18'
 
 export default function Home() {
   const [ map, setMap ] = useState();
@@ -275,7 +292,7 @@ export default function Home() {
         <link rel="canonical" herf="" />
 
         <meta name="description" content="Latest info about Japan's entry ban and coronavirus" />
-        <meta name="keywords" content="Japan, Open, Border, Visa, Tokyo, Osaka"></meta>
+        <meta name="keywords" content="Japan, Open, Border, Visa, Tokyo, Osaka, Can I go to Japan"></meta>
         <meta name="robots" content="index, follow" />
 
         <meta property="og:url" content="https://www.canigotojapan.com/" />
@@ -353,7 +370,7 @@ const News = () => {
   const [ articleCount, setArticleCount ] = useState(4)
 
   function handleMoreArticles() {
-    setArticleCount(articleCount+2);
+    setArticleCount(articleCount+4);
   }
 
   return (
