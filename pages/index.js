@@ -188,9 +188,10 @@ const man_total = [
   25658,
   20991,
   32197,
+  41485,
 ]
 
-const last_update = <span>Last updated on <b>2022/01/19</b> at 00:25 (GMT+9)</span>
+const last_update = <span>Last updated on <b>2022/01/19</b> at 22:25 (GMT+9)</span>
 // Sometimes data isn't updated on time
 const data_date = '2022-01-18'
 
