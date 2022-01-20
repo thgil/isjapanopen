@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 const categories = [
   {
     name: 'Today Cases',
-    color: (d) => { return d3.scaleSequential(d3.interpolateReds).domain([0, 5400])(d.today_cases) }
+    color: (d) => { return d3.scaleSequential(d3.interpolateReds).domain([0, 7000])(d.today_cases) }
   },
   {
     name: 'Total Cases',
