@@ -128,6 +128,14 @@ const articles = [
     description: "Japan's government is preparing social restrictions in Tokyo and other regions as the omicron variant of the coronavirus infects more people.",
     image: "https://bsmedia.business-standard.com/_media/bs/img/article/2021-11/05/full/1636111670-4079.jpg"
   },
+  {
+    id: 13,
+    url: "https://english.kyodonews.net/news/2022/01/c1ced975d81e-urgent-tokyos-daily-covid-19-cases-top-10000-for-1st-time-hit-record-high.html",
+    site_name: "Kyodo News+",
+    title: "Japan's daily COVID cases top 50,000, new record for 5th straight day",
+    description: "Japan's confirmed daily coronavirus cases top 50,000, setting a new record for the fifth day in a row, as the highly transmissible Omicron variant continues to spread across Japan quickly.",
+    image: "https://img.kyodonews.net/english/public/images/posts/57cd7120f5e57c7487d19a2544c5606a/photo_l.jpg"
+  },
 ]
 
 const pref_code = [
@@ -191,11 +199,12 @@ const man_total = [
   41485,
   46199,
   49854,
+  54576,
 ]
 
-const last_update = <span>Last updated on <b>2022/01/22</b> at 0:25 (GMT+9)</span>
+const last_update = <span>Last updated on <b>2022/01/23</b> at 1:55 (GMT+9)</span>
 // Sometimes data isn't updated on time
-const data_date = '2022-01-21'
+const data_date = '2022-01-22'
 
 export default function Home() {
   const [ map, setMap ] = useState();
