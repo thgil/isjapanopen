@@ -136,6 +136,14 @@ const articles = [
     description: "Japan's confirmed daily coronavirus cases top 50,000, setting a new record for the fifth day in a row, as the highly transmissible Omicron variant continues to spread across Japan quickly.",
     image: "https://img.kyodonews.net/english/public/images/posts/57cd7120f5e57c7487d19a2544c5606a/photo_l.jpg"
   },
+  {
+    id: 14,
+    url: "https://www.japantimes.co.jp/news/2022/01/24/business/keidanren-travel-ban-japan-unrealistic/",
+    site_name: "The Japan Times",
+    title: "Japan's COVID-19 border closure 'unrealistic,' business lobby chief says",
+    description: "The strict entry ban has been in place since Nov. 30 and was further extended until the end of February earlier this month.",
+    image: "https://cdn-japantimes.com/wp-content/uploads/2022/01/np_file_136986-870x489.jpeg"
+  }
 ]
 
 const pref_code = [
@@ -201,11 +209,12 @@ const man_total = [
   49854,
   54576,
   50030,
+  44810,
 ]
 
-const last_update = <span>Last updated on <b>2022/01/24</b> at 0:55 (GMT+9)</span>
+const last_update = <span>Last updated on <b>2022/01/25</b> at 3:55 (GMT+9)</span>
 // Sometimes data isn't updated on time
-const data_date = '2022-01-23'
+const data_date = '2022-01-24'
 
 export default function Home() {
   const [ map, setMap ] = useState();
