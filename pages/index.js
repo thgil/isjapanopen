@@ -143,6 +143,14 @@ const articles = [
     title: "Japan's COVID-19 border closure 'unrealistic,' business lobby chief says",
     description: "The strict entry ban has been in place since Nov. 30 and was further extended until the end of February earlier this month.",
     image: "https://cdn-japantimes.com/wp-content/uploads/2022/01/np_file_136986-870x489.jpeg"
+  },
+  {
+    id: 15,
+    url: "https://www.business-standard.com/article/international/tokyo-reports-record-coronavirus-cases-as-japan-tightens-measures-122012501591_1.html",
+    site_name: "Business Standard",
+    title: "Tokyo reports record coronavirus cases as Japan tightens measures",
+    description: "Tokyo on Tuesday reported a record high of Covid-19 cases, as Japan prepared to implement new anti-virus measures amid surging infections led by Omicron",
+    image: "https://bsmedia.business-standard.com/_media/bs/img/article/2021-12/29/full/1640780048-4214.jpg"
   }
 ]
 
@@ -210,11 +218,12 @@ const man_total = [
   54576,
   50030,
   44810,
+  62613,
 ]
 
-const last_update = <span>Last updated on <b>2022/01/25</b> at 3:55 (GMT+9)</span>
+const last_update = <span>Last updated on <b>2022/01/26</b> at 4:55 (GMT+9)</span>
 // Sometimes data isn't updated on time
-const data_date = '2022-01-24'
+const data_date = '2022-01-25'
 
 export default function Home() {
   const [ map, setMap ] = useState();

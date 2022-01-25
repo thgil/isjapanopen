@@ -9,11 +9,11 @@ const categories = [
   },
   {
     name: 'Total Cases',
-    color: (d) => { return d3.scaleSequential(d3.interpolateTurbo).domain([0, 410000])(d.total_cases) }
+    color: (d) => { return d3.scaleSequential(d3.interpolateTurbo).domain([0, 480000])(d.total_cases) }
   },
   {
     name: 'Deaths',
-    color: (d) => { return d3.scaleSequential(d3.interpolateBlues).domain([0, 5])(d.today_deaths) }
+    color: (d) => { return d3.scaleSequential(d3.interpolateBlues).domain([0, 9])(d.today_deaths) }
   },
   {
     name: 'Total Deaths',
