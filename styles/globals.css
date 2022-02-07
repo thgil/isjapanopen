@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-img {
+a img {
   height: 330px;
   width: 100%;
 }

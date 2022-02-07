@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Papa from 'papaparse'
 import Map from '../components/map'
 import { useState, useEffect } from 'react'
+import anime from 'animejs';
 
 const faqs = [
   {
@@ -159,6 +160,14 @@ const articles = [
     title: "Japan's daily COVID cases near 80,000, record high for 3rd day",
     description: "Japan's daily count of new COVID-19 cases neared 80,000 Thursday to hit a record high for the third consecutive day, as the highly transmissible Omicron variant continues its rapid spread in Tokyo and elsewhere.",
     image: "https://img.kyodonews.net/english/public/images/posts/6e4d9337f1d2692e3dd6a2ee9a1ac295/cropped_image_l.jpg"
+  },
+  {
+    id: 17,
+    url: "https://www.japantimes.co.jp/news/2022/02/04/national/kono-border-controls/",
+    site_name: "The Japan Times",
+    title: "Japan will take flexible approach on entry ban, COVID-19 minister says",
+    description: "The government will present a policy covering whether to ease the entry rules as early as next week, a report said.",
+    image: "https://cdn-japantimes.com/wp-content/uploads/2022/02/np_file_139121-870x489.jpeg"
   }
 ]
 
@@ -235,12 +244,15 @@ const man_total = [
   81654,
   94930,
   96845,
-  95453
+  95453,
+  100949,
+  89145,
+  68039
 ]
 
-const last_update = <span>Last updated on <b>2022/02/05</b> at 5:54 (GMT+9)</span>
+const last_update = <span>Last updated on <b>2022/02/08</b> at 5:54 (GMT+9)</span>
 // Sometimes data isn't updated on time
-const data_date = '2022-02-04'
+const data_date = '2022-02-07'
 
 export default function Home() {
   const [ map, setMap ] = useState();
@@ -248,6 +260,13 @@ export default function Home() {
   const [ total, setTotal ] = useState()
 
   useEffect(() => {
+
+    // anime({ targets: '#person', translateX: 0, translateY: -245, rotate: 170, duration: 2000, delay: 300, easing: 'easeOutElastic(1.2, 0.6)' });
+    const t1 = anime.timeline()
+    t1
+    .add({ targets: '#person', translateX: 0, translateY: -245, rotate: 170, duration: 2000, delay: 10000, easing: 'easeOutElastic(1.2, 0.6)' })
+    .add({ targets: '#person', translateX: 50, translateY: -300, rotate: 0, duration: 2000, delay: 9000, easing: 'easeOutElastic(1.2, 0.6)' })
+
     if(map || coronaData) return;
     
     async function getMapData() {
@@ -361,6 +380,7 @@ export default function Home() {
         <script defer data-domain="canigotojapan.com" src="https://plausible.io/js/plausible.js"></script>
       </Head>
       <main>
+        <Person />
         <Hero />
         <Cases total={total} />
         <News />
@@ -380,6 +400,21 @@ export default function Home() {
       <footer>
         <div className="text-center text-red-300 text-sm bg-red-600 p-12"><h5>Made by</h5> <a className="text-red-100 hover:text-white" href="https://www.twitter.com/fergusleen">@fergusleen</a></div>
       </footer>
+    </div>
+  )
+}
+const Person = () => {
+  return (
+    <div className='hidden lg:block absolute'>
+      <div id="person" className='fixed w-44 h-auto md:w-56'
+        style={{transformOrigin: '50% 100%',transform: 'translateX(50px) translateY(-300px)'}}>
+        <img className="drop-shadow-[0_20px_20px_rgba(0,0,0,0.15)]" src='/french.svg' />
+        <div className='absolute border border-gray-700 p-4 bg-white drop-shadow text-center'
+          style={{transformOrigin: '50% 100%',transform: 'translateX(-220px) translateY(-250px) rotate(180deg)'}}>
+          I really hope Japan opens in early March..
+        </div>
+        <div className='absolute h-8 w-8 border-t border-l border-gray-700 bg-white' style={{transformOrigin: '50% 100%',transform: 'translateX(-24px) translateY(-170px) rotate(135deg)'}}> </div>
+      </div>
     </div>
   )
 }
