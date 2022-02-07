@@ -262,10 +262,10 @@ export default function Home() {
   useEffect(() => {
 
     // anime({ targets: '#person', translateX: 0, translateY: -245, rotate: 170, duration: 2000, delay: 300, easing: 'easeOutElastic(1.2, 0.6)' });
-    const t1 = anime.timeline()
-    t1
-    .add({ targets: '#person', translateX: 0, translateY: -245, rotate: 170, duration: 2000, delay: 10000, easing: 'easeOutElastic(1.2, 0.6)' })
-    .add({ targets: '#person', translateX: 50, translateY: -300, rotate: 0, duration: 2000, delay: 9000, easing: 'easeOutElastic(1.2, 0.6)' })
+    // const t1 = anime.timeline()
+    // t1
+    // .add({ targets: '#person', translateX: 0, translateY: -245, rotate: 170, duration: 2000, delay: 16000, easing: 'easeOutElastic(1.2, 0.6)' })
+    // .add({ targets: '#person', translateX: 50, translateY: -300, rotate: 0, duration: 2000, delay: 9000, easing: 'easeOutElastic(1.2, 0.6)' })
 
     if(map || coronaData) return;
     
