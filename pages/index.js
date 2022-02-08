@@ -168,6 +168,14 @@ const articles = [
     title: "Japan will take flexible approach on entry ban, COVID-19 minister says",
     description: "The government will present a policy covering whether to ease the entry rules as early as next week, a report said.",
     image: "https://cdn-japantimes.com/wp-content/uploads/2022/02/np_file_139121-870x489.jpeg"
+  },
+  {
+    id: 18,
+    url: "https://www.nippon.com/en/news/reu20220208KBN2KD152/",
+    site_name: "nippon.com",
+    title: "Japan reports daily record of 159 COVID deaths",
+    description: "Japan reported 159 coronavirus deaths on Tuesday, a daily record, Kyodo news agency said.",
+    image: "https://www.nippon.com/en/ncommon/contents/news/1546707/1546707.jpg"
   }
 ]
 
@@ -247,12 +255,13 @@ const man_total = [
   95453,
   100949,
   89145,
-  68039
+  68039,
+  92078
 ]
 
-const last_update = <span>Last updated on <b>2022/02/08</b> at 5:54 (GMT+9)</span>
+const last_update = <span>Last updated on <b>2022/02/09</b> at 5:19 (GMT+9)</span>
 // Sometimes data isn't updated on time
-const data_date = '2022-02-07'
+const data_date = '2022-02-08'
 
 export default function Home() {
   const [ map, setMap ] = useState();
