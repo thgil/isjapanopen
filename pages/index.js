@@ -176,6 +176,14 @@ const articles = [
     title: "Japan reports daily record of 159 COVID deaths",
     description: "Japan reported 159 coronavirus deaths on Tuesday, a daily record, Kyodo news agency said.",
     image: "https://www.nippon.com/en/ncommon/contents/news/1546707/1546707.jpg"
+  },
+  {
+    id: 19,
+    url: "https://www3.nhk.or.jp/nhkworld/en/news/20220209_47/",
+    site_name: "nhk",
+    title: "Japan to extend coronavirus quasi-emergency measures",
+    description: "Japanese authorities are struggling to curb a spike in coronavirus infections. The government is set to extend quasi-emergency measures covering Tokyo and 12 other prefectures and implement a more focused approach for children and the elderly.",
+    image: "https://www3.nhk.or.jp/nhkworld/upld/thumbnails/en/news/20220209_47_1078364_L.jpg"
   }
 ]
 
@@ -256,12 +264,13 @@ const man_total = [
   100949,
   89145,
   68039,
-  92078
+  92078,
+  97833
 ]
 
-const last_update = <span>Last updated on <b>2022/02/09</b> at 5:19 (GMT+9)</span>
+const last_update = <span>Last updated on <b>2022/02/10</b> at 6:06 (GMT+9)</span>
 // Sometimes data isn't updated on time
-const data_date = '2022-02-08'
+const data_date = '2022-02-09'
 
 export default function Home() {
   const [ map, setMap ] = useState();
