@@ -184,6 +184,14 @@ const articles = [
     title: "Japan to extend coronavirus quasi-emergency measures",
     description: "Japanese authorities are struggling to curb a spike in coronavirus infections. The government is set to extend quasi-emergency measures covering Tokyo and 12 other prefectures and implement a more focused approach for children and the elderly.",
     image: "https://www3.nhk.or.jp/nhkworld/upld/thumbnails/en/news/20220209_47_1078364_L.jpg"
+  },
+  {
+    id: 20,
+    url: "https://asia.nikkei.com/Spotlight/Coronavirus/Japan-to-let-in-foreign-workers-and-students-starting-this-month",
+    site_name: "Nikkei Asia",
+    title: "Japan to let in foreign workers and students starting this month",
+    description: "Loosening of COVID border controls follows pressure at home and abroad",
+    image: "https://www.ft.com/__origami/service/image/v2/images/raw/https%253A%252F%252Fs3-ap-northeast-1.amazonaws.com%252Fpsh-ex-ftnikkei-3937bb4%252Fimages%252F8%252F0%252F7%252F8%252F38878708-1-eng-GB%252Fphoto_SXM2021113000001017.jpg?width=1024&height=512&fit=cover&gravity=faces&source=nar-cms"
   }
 ]
 
@@ -265,12 +273,13 @@ const man_total = [
   89145,
   68039,
   92078,
-  97833
+  97833,
+  98370
 ]
 
-const last_update = <span>Last updated on <b>2022/02/10</b> at 6:06 (GMT+9)</span>
+const last_update = <span>Last updated on <b>2022/02/12</b> at 6:06 (GMT+9)</span>
 // Sometimes data isn't updated on time
-const data_date = '2022-02-09'
+const data_date = '2022-02-11'
 
 export default function Home() {
   const [ map, setMap ] = useState();
@@ -279,11 +288,11 @@ export default function Home() {
 
   useEffect(() => {
 
-    // anime({ targets: '#person', translateX: 0, translateY: -245, rotate: 170, duration: 2000, delay: 300, easing: 'easeOutElastic(1.2, 0.6)' });
-    // const t1 = anime.timeline()
-    // t1
-    // .add({ targets: '#person', translateX: 0, translateY: -245, rotate: 170, duration: 2000, delay: 16000, easing: 'easeOutElastic(1.2, 0.6)' })
-    // .add({ targets: '#person', translateX: 50, translateY: -300, rotate: 0, duration: 2000, delay: 9000, easing: 'easeOutElastic(1.2, 0.6)' })
+    anime({ targets: '#person', translateX: 0, translateY: -245, rotate: 170, duration: 2000, delay: 300, easing: 'easeOutElastic(1.2, 0.6)' });
+    const t1 = anime.timeline()
+    t1
+    .add({ targets: '#person', translateX: 0, translateY: -245, rotate: 170, duration: 2000, delay: 8000, easing: 'easeOutElastic(1.2, 0.6)' })
+    .add({ targets: '#person', translateX: 50, translateY: -300, rotate: 0, duration: 2000, delay: 15000, easing: 'easeOutElastic(1.2, 0.6)' })
 
     if(map || coronaData) return;
     
@@ -428,8 +437,8 @@ const Person = () => {
         style={{transformOrigin: '50% 100%',transform: 'translateX(50px) translateY(-300px)'}}>
         <img className="drop-shadow-[0_20px_20px_rgba(0,0,0,0.15)]" src='/french.svg' />
         <div className='absolute border border-gray-700 p-4 bg-white drop-shadow text-center'
-          style={{transformOrigin: '50% 100%',transform: 'translateX(-220px) translateY(-250px) rotate(180deg)'}}>
-          I really hope Japan opens in early March..
+          style={{transformOrigin: '50% 100%',transform: 'translateX(-220px) translateY(-300px) rotate(180deg)'}}>
+          Japan to let in foreign workers and students starting this month!!
         </div>
         <div className='absolute h-8 w-8 border-t border-l border-gray-700 bg-white' style={{transformOrigin: '50% 100%',transform: 'translateX(-24px) translateY(-170px) rotate(135deg)'}}> </div>
       </div>
