@@ -192,6 +192,14 @@ const articles = [
     title: "Japan to let in foreign workers and students starting this month",
     description: "Loosening of COVID border controls follows pressure at home and abroad",
     image: "https://www.ft.com/__origami/service/image/v2/images/raw/https%253A%252F%252Fs3-ap-northeast-1.amazonaws.com%252Fpsh-ex-ftnikkei-3937bb4%252Fimages%252F8%252F0%252F7%252F8%252F38878708-1-eng-GB%252Fphoto_SXM2021113000001017.jpg?width=1024&height=512&fit=cover&gravity=faces&source=nar-cms"
+  },
+  {
+    id: 21,
+    url: "https://the-japan-news.com/news/article/0008271032",
+    site_name: "The Japan News",
+    title: "Japan may ease border control measures in March",
+    description: "Coronavirus-related border control measures for nonresident foreigners may be eased in March, starting with businesspeople and students, according to government sources. ",
+    image: "https://the-japan-news-archives.s3-ap-northeast-1.amazonaws.com/preview/entries/381322/materials/1095312/DTMANAGE.000000020220212150953231-1.jpg?AWSAccessKeyId=AKIAI7EPFDYX6SSPYKKQ&Expires=1644912828&Signature=M8xRu4lwK3XuqwOnz2DSCFev%2F00%3D"
   }
 ]
 
@@ -274,12 +282,14 @@ const man_total = [
   68039,
   92078,
   97833,
-  98370
+  98370,
+  68470,
+  60142
 ]
 
-const last_update = <span>Last updated on <b>2022/02/12</b> at 6:06 (GMT+9)</span>
+const last_update = <span>Last updated on <b>2022/02/15</b> at 0:31 (GMT+9)</span>
 // Sometimes data isn't updated on time
-const data_date = '2022-02-11'
+const data_date = '2022-02-13'
 
 export default function Home() {
   const [ map, setMap ] = useState();
@@ -438,7 +448,7 @@ const Person = () => {
         <img className="drop-shadow-[0_20px_20px_rgba(0,0,0,0.15)]" src='/french.svg' />
         <div className='absolute border border-gray-700 p-4 bg-white drop-shadow text-center'
           style={{transformOrigin: '50% 100%',transform: 'translateX(-220px) translateY(-300px) rotate(180deg)'}}>
-          Japan to let in foreign workers and students starting this month!!
+          Japan to let in foreign workers and students starting in March!!
         </div>
         <div className='absolute h-8 w-8 border-t border-l border-gray-700 bg-white' style={{transformOrigin: '50% 100%',transform: 'translateX(-24px) translateY(-170px) rotate(135deg)'}}> </div>
       </div>
