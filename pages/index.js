@@ -195,11 +195,11 @@ const articles = [
   },
   {
     id: 21,
-    url: "https://the-japan-news.com/news/article/0008271032",
+    url: "https://english.kyodonews.net/news/2022/02/cdbe92345865-150000-students-unable-to-enter-japan-due-to-covid-border-controls.html",
     site_name: "The Japan News",
-    title: "Japan may ease border control measures in March",
-    description: "Coronavirus-related border control measures for nonresident foreigners may be eased in March, starting with businesspeople and students, according to government sources. ",
-    image: "https://the-japan-news-archives.s3-ap-northeast-1.amazonaws.com/preview/entries/381322/materials/1095312/DTMANAGE.000000020220212150953231-1.jpg?AWSAccessKeyId=AKIAI7EPFDYX6SSPYKKQ&Expires=1644912828&Signature=M8xRu4lwK3XuqwOnz2DSCFev%2F00%3D"
+    title: "Japan to ease COVID border controls, lift entry quarantine from March",
+    description: "Some 150,000 foreign students who hold Japan visas were unable to enter the country by the end of last year due to its strict COVID-19 border controls, the top government spokesman say",
+    image: "https://img.kyodonews.net/english/public/images/posts/055339d82da3da5b113a155e8d0415fa/cropped_image_l.jpg"
   }
 ]
 
@@ -284,12 +284,13 @@ const man_total = [
   97833,
   98370,
   68470,
-  60142
+  60142,
+  84220
 ]
 
-const last_update = <span>Last updated on <b>2022/02/15</b> at 0:31 (GMT+9)</span>
+const last_update = <span>Last updated on <b>2022/02/16</b> at 3:31 (GMT+9)</span>
 // Sometimes data isn't updated on time
-const data_date = '2022-02-13'
+const data_date = '2022-02-15'
 
 export default function Home() {
   const [ map, setMap ] = useState();
