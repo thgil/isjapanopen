@@ -8,12 +8,12 @@ const faqs = [
   {
     id: 1,
     question: "When will Japan lift its travel ban and reopen for tourists?",
-    answer: "No one knows yet. Japan just further extended the entry ban until the end of February. Business people and students will likely be allowed in before tourists.",
+    answer: "The ban is started to get lifted. Business people and students will likely be allowed into Japan in March (in limited numbers).",
   },
   {
     id: 2,
     question: "Can I go to Japan?",
-    answer: "Not likely. Travel for tourism is still not permitted, and there is no indication that this will change in the short term. On November 29, Japan announced that, due to the Omicron variant, all foreign visitors are banned from entering Japan. This includes business people and students.",
+    answer: "Not just yet. Travel for tourism is still not permitted, and there is no indication that this will change in the short term. On November 29, Japan announced that, due to the Omicron variant, all foreign visitors are banned from entering Japan. This includes business people and students.",
   },
   { 
     id: 3,
@@ -23,7 +23,7 @@ const faqs = [
   {
     id: 4,
     question: "When is the next update from the Japanese government?",
-    answer: "A decision on whether to maintain the closure is expected sometime within the next week, in mid-January 2022.",
+    answer: "We expect to hear the next update around March when they open the border to a limited number of overseas students, workers and business travelers.",
   },
   {
     id: 5,
@@ -200,6 +200,14 @@ const articles = [
     title: "Japan to ease COVID border controls, lift entry quarantine from March",
     description: "Some 150,000 foreign students who hold Japan visas were unable to enter the country by the end of last year due to its strict COVID-19 border controls, the top government spokesman say",
     image: "https://img.kyodonews.net/english/public/images/posts/055339d82da3da5b113a155e8d0415fa/cropped_image_l.jpg"
+  },
+  {
+    id: 22,
+    url: "https://www.theguardian.com/world/2022/feb/17/japan-to-ease-covid-border-controls-after-two-years",
+    site_name: "The Guardian",
+    title: "Japan to ease Covid border controls after two years of 'seclusion policy'",
+    description: "Reports say PM will raise caps on arrivals and shorten quarantine times amid complaints that tough measures were worsening chronic labour shortage",
+    image: "https://i.guim.co.uk/img/media/2ad2622d8b1f1c2872981079725e5943a2a9ad94/0_214_4420_2652/master/4420.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=51fd33dba3db8c73315dc5ec48f6fad8"
   }
 ]
 
@@ -285,12 +293,13 @@ const man_total = [
   98370,
   68470,
   60142,
-  84220
+  84220,
+  95208
 ]
 
-const last_update = <span>Last updated on <b>2022/02/16</b> at 3:31 (GMT+9)</span>
+const last_update = <span>Last updated on <b>2022/02/18</b> at 4:51 (GMT+9) (Thanks <a className="text-red-400" href="https://twitter.com/cmckendry">@cmckendry</a>!)</span>
 // Sometimes data isn't updated on time
-const data_date = '2022-02-15'
+const data_date = '2022-02-17'
 
 export default function Home() {
   const [ map, setMap ] = useState();
