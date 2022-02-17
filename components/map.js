@@ -13,7 +13,7 @@ const categories = [
   },
   {
     name: 'Deaths',
-    color: (d) => { return d3.scaleSequential(d3.interpolateBlues).domain([0, 15])(d.today_deaths) }
+    color: (d) => { return d3.scaleSequential(d3.interpolateBlues).domain([0, 25])(d.today_deaths) }
   },
   {
     name: 'Total Deaths',

@@ -8,7 +8,7 @@ const faqs = [
   {
     id: 1,
     question: "When will Japan lift its travel ban and reopen for tourists?",
-    answer: "The ban is started to get lifted. Business people and students will likely be allowed into Japan in March (in limited numbers).",
+    answer: "Business people and students will likely be allowed into Japan in March (in limited numbers). Tourists will hopefully be allowed in soon after.",
   },
   {
     id: 2,
