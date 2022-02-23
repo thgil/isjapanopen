@@ -208,6 +208,14 @@ const articles = [
     title: "Japan to ease Covid border controls after two years of 'seclusion policy'",
     description: "Reports say PM will raise caps on arrivals and shorten quarantine times amid complaints that tough measures were worsening chronic labour shortage",
     image: "https://i.guim.co.uk/img/media/2ad2622d8b1f1c2872981079725e5943a2a9ad94/0_214_4420_2652/master/4420.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=51fd33dba3db8c73315dc5ec48f6fad8"
+  },
+  {
+    id: 23,
+    url: "https://www.japantimes.co.jp/news/2022/02/17/national/japan-eases-covid-border-restrictions/",
+    site_name: "japantimes",
+    title: "It's official: Japan eases entry restrictions for foreign students, business travelers and other nontourists",
+    description: "The move comes amid growing concerns over economic and reputational costs, and as Kishida indicates exiting the sixth wave.",
+    image: "https://cdn-japantimes.com/wp-content/uploads/2022/02/np_file_141683-870x489.jpeg"
   }
 ]
 
@@ -297,12 +305,13 @@ const man_total = [
   95208,
   87723,
   81621,
-  51987
+  51987,
+  80364
 ]
 
-const last_update = <span>Last updated on <b>2022/02/22</b> at 8:44 (GMT+9) (Thanks <a className="text-red-400" href="https://twitter.com/cmckendry">@cmckendry</a>!)</span>
+const last_update = <span>Last updated on <b>2022/02/24</b> at 8:24 (GMT+9) (Thanks <a className="text-red-400" href="https://twitter.com/cmckendry">@cmckendry</a>!)</span>
 // Sometimes data isn't updated on time
-const data_date = '2022-02-21'
+const data_date = '2022-02-23'
 
 export default function Home() {
   const [ map, setMap ] = useState();
