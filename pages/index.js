@@ -216,6 +216,14 @@ const articles = [
     title: "It's official: Japan eases entry restrictions for foreign students, business travelers and other nontourists",
     description: "The move comes amid growing concerns over economic and reputational costs, and as Kishida indicates exiting the sixth wave.",
     image: "https://cdn-japantimes.com/wp-content/uploads/2022/02/np_file_141683-870x489.jpeg"
+  },
+  {
+    id: 24,
+    url: "https://english.kyodonews.net/news/2022/02/e0388a04d12d-japan-seeks-to-further-ease-border-controls-as-covid-6th-wave-wanes.html",
+    site_name: "KYODO NEWS",
+    title: "Japan seeks to further ease border controls as COVID 6th wave wanes",
+    description: "Prime Minister Fumio Kishida says that the Japanese government is considering further easing border restrictions as the country prepares to 'exit the sixth wave' of the COVID-19 pandemic.",
+    image: "https://img.kyodonews.net/english/public/images/posts/cae1d4ddbf125c4f1f1db692a2df876b/cropped_image_l.jpg"
   }
 ]
 
@@ -306,12 +314,13 @@ const man_total = [
   87723,
   81621,
   51987,
-  80364
+  80364,
+  61259
 ]
 
-const last_update = <span>Last updated on <b>2022/02/24</b> at 8:24 (GMT+9) (Thanks <a className="text-red-400" href="https://twitter.com/cmckendry">@cmckendry</a>!)</span>
+const last_update = <span>Last updated on <b>2022/02/25</b> at 8:34 (GMT+9) (Thanks <a className="text-red-400" href="https://twitter.com/cmckendry">@cmckendry</a>!)</span>
 // Sometimes data isn't updated on time
-const data_date = '2022-02-23'
+const data_date = '2022-02-24'
 
 export default function Home() {
   const [ map, setMap ] = useState();
