@@ -316,12 +316,13 @@ const man_total = [
   51987,
   80364,
   61259,
-  63703
+  63703,
+  70348
 ]
 
-const last_update = <span>Last updated on <b>2022/02/28</b> at 8:34 (GMT+9)</span>
+const last_update = <span>Last updated on <b>2022/03/04</b> at 8:58 (GMT+9)</span>
 // Sometimes data isn't updated on time
-const data_date = '2022-02-27'
+const data_date = '2022-03-03'
 
 export default function Home() {
   const [ map, setMap ] = useState();
