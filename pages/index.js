@@ -20,11 +20,11 @@ const faqs = [
     question: "Who can go to Japan now?",
     answer: "Japanese citizens and foreign residents with a reentry permit are generally allowed to reenter Japan but must comply with strict pre- and post- travel testing requirements and quarantine upon arrival."
   },
-  {
-    id: 4,
-    question: "When is the next update from the Japanese government?",
-    answer: "We expect to hear the next update around March when they open the border to a limited number of overseas students, workers and business travelers.",
-  },
+  // {
+  //   id: 4,
+  //   question: "When is the next update from the Japanese government?",
+  //   answer: "We expect to hear the next update around March when they open the border to a limited number of overseas students, workers and business travelers.",
+  // },
   {
     id: 5,
     question: "I thought Japan eased restrictions?",
@@ -224,6 +224,14 @@ const articles = [
     title: "Japan seeks to further ease border controls as COVID 6th wave wanes",
     description: "Prime Minister Fumio Kishida says that the Japanese government is considering further easing border restrictions as the country prepares to 'exit the sixth wave' of the COVID-19 pandemic.",
     image: "https://img.kyodonews.net/english/public/images/posts/cae1d4ddbf125c4f1f1db692a2df876b/cropped_image_l.jpg"
+  },
+  {
+    id: 25,
+    url: "https://english.kyodonews.net/news/2022/03/180692ba62b6-japan-eyes-entry-of-most-foreign-students-waiting-amid-covid-by-end-may.html",
+    site_name: "KYODO NEWS",
+    title: "Japan eyes entry of most foreign students waiting amid COVID by end-May",
+    description: "Most foreign students waiting to study in Japan will likely be able to enter the country by the end of May, as a new priority entry program is set to begin amid softer COVID-19 border controls, the top Japanese government spokesman says",
+    image: "https://img.kyodonews.net/english/public/images/posts/99ec70ebb179e921a3bdf3e5fb1f0cfb/cropped_image_l.jpg"
   }
 ]
 
@@ -318,12 +326,13 @@ const man_total = [
   61259,
   63703,
   70348,
-  53969
+  53969,
+  61155
 ]
 
-const last_update = <span>Last updated on <b>2022/03/07</b> at 8:58 (GMT+9)</span>
+const last_update = <span>Last updated on <b>2022/03/11</b> at 8:55 (GMT+9)</span>
 // Sometimes data isn't updated on time
-const data_date = '2022-03-06'
+const data_date = '2022-03-10'
 
 export default function Home() {
   const [ map, setMap ] = useState();
