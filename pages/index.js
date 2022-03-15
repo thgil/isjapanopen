@@ -232,6 +232,14 @@ const articles = [
     title: "Japan eyes entry of most foreign students waiting amid COVID by end-May",
     description: "Most foreign students waiting to study in Japan will likely be able to enter the country by the end of May, as a new priority entry program is set to begin amid softer COVID-19 border controls, the top Japanese government spokesman says",
     image: "https://img.kyodonews.net/english/public/images/posts/99ec70ebb179e921a3bdf3e5fb1f0cfb/cropped_image_l.jpg"
+  },
+  {
+    id: 26,
+    url: "https://english.kyodonews.net/news/2022/03/d7ae0e0b746e-breaking-news-japan-weighs-raising-daily-cap-on-entrants-to-country-to-10000.html",
+    site_name: "KYODO NEWS",
+    title: "Japan may allow 10,000 people per day to enter country from April",
+    description: "Japan is considering raising the daily cap on overseas arrivals to 10,000 from the current 7,000 starting in April, further easing its COVID-19 border controls, government sources say.",
+    image: "https://img.kyodonews.net/english/public/images/posts/204c32af16329ac5dd7149db20560bd2/photo_l.jpg"
   }
 ]
 
@@ -327,12 +335,13 @@ const man_total = [
   63703,
   70348,
   53969,
-  61155
+  61155,
+  50781
 ]
 
-const last_update = <span>Last updated on <b>2022/03/11</b> at 8:55 (GMT+9)</span>
+const last_update = <span>Last updated on <b>2022/03/16</b> at 3:11 (GMT+9)</span>
 // Sometimes data isn't updated on time
-const data_date = '2022-03-10'
+const data_date = '2022-03-15'
 
 export default function Home() {
   const [ map, setMap ] = useState();
@@ -460,7 +469,7 @@ export default function Home() {
         <script defer data-domain="canigotojapan.com" src="https://plausible.io/js/plausible.js"></script>
       </Head>
       <main>
-        <Person />
+        {/* <Person /> */}
         <Hero />
         <Cases total={total} />
         <News />
