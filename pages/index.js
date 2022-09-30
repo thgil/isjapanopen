@@ -339,9 +339,9 @@ const man_total = [
   50781
 ]
 
-const last_update = <span>Last updated on <b>2022/03/16</b> at 3:11 (GMT+9)</span>
+const last_update = <span>Last updated on <b>2022/09/30</b> at 11:11 (GMT+0)</span>
 // Sometimes data isn't updated on time
-const data_date = '2022-03-15'
+const data_date = '2022-09-29'
 
 export default function Home() {
   const [ map, setMap ] = useState();
@@ -441,7 +441,7 @@ export default function Home() {
   return (
     <div className="">
       <Head>
-        <title>Can I go to Japan? | Not yet</title>
+        <title>Can I go to Japan? | YES from October 11, 2022.</title>
 
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css"></link>
@@ -453,14 +453,14 @@ export default function Home() {
 
         <meta property="og:url" content="https://www.canigotojapan.com/" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Can I go to Japan? - Not yet" />
+        <meta property="og:title" content="Can I go to Japan? - YES from October 11, 2022" />
         <meta property="og:description" content="Latest info about Japan's entry ban and coronavirus" />
         <meta property="og:image" content="https://www.canigotojapan.com/og-canigotojapan.png" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="canigotojapan.com" />
         <meta property="twitter:url" content="https://www.canigotojapan.com/" />
-        <meta name="twitter:title" content="Can I go to Japan? - Not yet" />
+        <meta name="twitter:title" content="Can I go to Japan? - YES from October 11, 2022" />
         <meta name="twitter:description" content="Latest info about Japan's entry ban and coronavirus" />
         <meta name="twitter:image" content="https://www.canigotojapan.com/og-canigotojapan.png" />
 
@@ -471,7 +471,7 @@ export default function Home() {
       <main>
         {/* <Person /> */}
         <Hero />
-        <Cases total={total} />
+        {/* <Cases total={total} />
         <News />
         <FAQ />
         {!map && (
@@ -483,7 +483,7 @@ export default function Home() {
             <span>Loading map data..</span>
           </div>
         )}
-        {map && <Map data={map} width={width} />}
+        {map && <Map data={map} width={width} />} */}
         <CTA />
       </main> 
       <footer>
@@ -517,7 +517,7 @@ const Hero = () => {
             Is Japan open yet?
           </h1>
           <h2 className="max-w-xl mt-5 mx-auto text-4xl text-gray-700">
-            No. Japan is still closed :(
+            Opening on <b>October 11</b>, 2022
           </h2>
         </div>
       </div>
